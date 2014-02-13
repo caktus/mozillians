@@ -25,7 +25,7 @@ LOGGING = {
 # Database settings
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.contrib.gis.db.backends.mysql',
         'HOST': '',
         'PORT': '',
         'OPTIONS': {

@@ -42,7 +42,7 @@ SITE_URL = '%s%s:%d' % (PROTOCOL, DOMAIN, PORT)
 # Database name has to be set because of sphinx
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.contrib.gis.db.backends.mysql',
         'HOST': '${DB_HOST}',
         'NAME': '${JOB_NAME}',
         'USER': 'hudson',
