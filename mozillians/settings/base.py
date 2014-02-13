@@ -149,6 +149,8 @@ INSTALLED_APPS = get_apps(append=[
     'django.contrib.admin',
     'django_browserid',
     'jingo_offline_compressor',
+    'django.contrib.gis',
+    'cities',
 
     # DB migrations
     'south',

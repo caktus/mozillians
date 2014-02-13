@@ -11,7 +11,9 @@ VirtualEnv Installation
 
 
 **Prerequisites:** You 'll need python 2.6, virtualenv and pip.  You'll also need
-mysql-dev (or the equivalent on your system), and MySQL server.
+mysql-dev (or the equivalent on your system), MySQL server, and the
+GEOS library  (Ubuntu: ``apt-get install libgeos-3.2.2 libgeos-dev binutils`` or see
+`the install directions`_ (https://docs.djangoproject.com/en/1.4/ref/contrib/gis/install/#geos)).
 
 You will probably also want a \*nix box; Mozillians.org is tricky to install on Windows.
 
