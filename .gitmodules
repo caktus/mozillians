@@ -37,4 +37,4 @@
 	url = https://github.com/JoelSutherland/LESS-Prefixer.git
 [submodule "vendor-local/src/django-cities"]
 	path = vendor-local/src/django-cities
-	url = git@github.com:coderholic/django-cities
+	url = git@github.com:dpoirier/django-cities

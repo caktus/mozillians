@@ -299,3 +299,6 @@ HUMANSTXT_GITHUB_REPO = 'https://api.github.com/repos/mozilla/mozillians/contrib
 HUMANSTXT_LOCALE_REPO = 'https://svn.mozilla.org/projects/l10n-misc/trunk/mozillians/locales'
 HUMANSTXT_FILE = os.path.join(STATIC_ROOT, 'humans.txt')
 HUMANSTXT_URL = urljoin(STATIC_URL, 'humans.txt')
+
+# django-cities will only import postal codes for these countries
+CITIES_POSTAL_CODES = ['US']
