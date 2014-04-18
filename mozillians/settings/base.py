@@ -190,6 +190,7 @@ SOUTH_TESTS_MIGRATE = False
 # Django-CSP
 CSP_DEFAULT_SRC = ("'self'",
                    'https://*.mapbox.com')
+CSP_CONNECT_SRC = ('*.tiles.mapbox.com',)
 CSP_FONT_SRC = ("'self'",
                 'http://*.mozilla.net',
                 'https://*.mozilla.net')
@@ -202,6 +203,7 @@ CSP_IMG_SRC = ("'self'",
                '*.google-analytics.com',
                '*.gravatar.com',
                '*.wp.com',
+               '*.dummyimage.com',
                '*.mapbox.com')
 CSP_SCRIPT_SRC = ("'self'",
                   'http://www.mozilla.org',
@@ -211,6 +213,7 @@ CSP_SCRIPT_SRC = ("'self'",
                   'https://*.google-analytics.com',
                   'https://login.persona.org',
                   'https://*.mapbox.com')
+                  '*.api.tiles.mapbox.com')
 CSP_STYLE_SRC = ("'self'",
                  "'unsafe-inline'",
                  'http://www.mozilla.org',
@@ -218,6 +221,7 @@ CSP_STYLE_SRC = ("'self'",
                  'http://*.mozilla.net',
                  'https://*.mozilla.net',
                  'https://*.mapbox.com')
+                 '*.api.tiles.mapbox.com')
 
 # Elasticutils settings
 ES_DISABLED = True
