@@ -2,7 +2,7 @@
 var watercolor = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg');
 var labels = L.tileLayer('http://{s}.tile.stamen.com/toner-labels/{z}/{x}/{y}.jpg');
 
-var map = L.mapbox.map('map','fabmud.hd0kn6ee', {minZoom: 1, maxZoom: 5});
+var map = L.mapbox.map('map','fabmud.hd0kn6ee', {minZoom: 1, maxZoom: 4, scrollWheelZoom:false});
 
 //map.addLayer(watercolor);
 //map.addLayer(labels);
@@ -14,7 +14,6 @@ var addressPoints = [
 [35.999841, -78.908997, "Durham"],
 [35.980952, -78.514862, "Wake Forest"],
 [35.230646, -80.838470, "Charlotte"],
-
 
 [34.264061, -6.578296, "DARDAR SAAD (KENITRA, Morocco)"],
 [47.408867, 4.717312, 'Tarek Ziadé (Turcey, 21, France)'],
@@ -33,17 +32,23 @@ var addressPoints = [
 ];
 
 var clusters = L.markerClusterGroup({
+    showCoverageOnHover: false,
     iconCreateFunction: function(cluster) {
-        return new L.DivIcon({ html: '<div class="moz-marker">' + cluster.getChildCount() + '</div>' });
+        return new L.DivIcon({
+            iconSize: L.point(40,40),
+            iconAnchor: L.point(25,25),
+            className: 'moz-marker',
+            html: cluster.getChildCount()
+        });
     }
 });
 
 for (var i = 0; i < addressPoints.length; i++) {
-	var a = addressPoints[i];
-	var title = a[2];
-	var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title });
-	marker.bindPopup(title);
-	clusters.addLayer(marker);
+    var a = addressPoints[i];
+    var title = a[2];
+    var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title });
+    marker.bindPopup(title);
+    clusters.addLayer(marker);
 }
 
 map.addLayer(clusters);
