@@ -1,11 +1,10 @@
-
-var watercolor = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg');
-var labels = L.tileLayer('http://{s}.tile.stamen.com/toner-labels/{z}/{x}/{y}.jpg');
-
-var map = L.mapbox.map('map','fabmud.hd0kn6ee', {minZoom: 1, maxZoom: 4, scrollWheelZoom:false});
-
-//map.addLayer(watercolor);
-//map.addLayer(labels);
+var map = L.map('map')
+    .setView([0, 0], 1)
+    .addLayer(L.mapbox.tileLayer('fabmud.i23cd7kk', {
+        detectRetina: true,
+        maxZoom: 5,
+        minZoom: 1,
+    }));
 
 var addressPoints = [
 [35.777325, -78.641205, "Raleigh"],
