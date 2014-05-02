@@ -1,0 +1,147 @@
+
+
+/* Generic Groups, Functional Areas and Search Results
+====================================================== */
+body.search-page {
+    .result {
+        position:relative;
+        float: left;
+        margin-left: 20px;
+        height: 130px;
+        @media (max-width: @breakTablet) {
+            margin: 0 20px 0 0;
+        }
+        @media (max-width: @breakMobileLandscape) {
+            width: 100%;
+        }
+        .card {
+            margin-bottom: 15px;
+            .well;
+            padding: 8px 10px 5px;
+            width: 278px;
+            height: 100px;
+            font-weight: normal;
+            overflow: hidden;
+            @media (max-width: @breakDesktop) {
+                width: 328px;
+            }
+            @media (max-width: @breakMobileLandscape) {
+                width: 93%;
+            }
+            .avatar {
+                float: left;
+                position: relative;
+                span {
+                    width: 70px;
+                    height: 70px;
+                    top: 10px;
+                    .border-radius(100%);
+                    border: 5px solid @white;
+                    position: absolute;
+                    .box-shadow(0px 0px 2px rgba(0, 2px, 2px, 0.2));
+                    img {
+                        display: block;
+                        height: 70px;
+                        width: 70px;
+                        margin: 0;
+                        .border-radius(100%);
+                    }
+                }
+            }
+            .details {
+                float: left;
+                padding-left: 90px;
+                h2 {
+                    font-size: 20px;
+                    margin: 0;
+                    padding-bottom: 8px;
+                }
+                ul {
+                    margin: 0;
+                    padding: 10px 0;
+                    font-size: 12px;
+                    list-style: none;
+                    text-align: left;
+                    li {
+                        margin: 0;
+                        line-height: 18px;
+                    }
+                }
+            }
+        }
+    }
+    form.sort-form {
+        label { display: none; }
+        input[type=submit] {
+            .button;
+            margin-left: 10px;
+        }
+        margin: 20px 0;
+
+    }
+    .groups-areas {
+        .clearfix;
+        ul.group-list {
+            list-style: none;
+            li {
+                float: left;
+                margin: 20px 20px 0 0;
+                padding: 0;
+                width: 290px;
+                height: 75px;
+                @media (max-width: @breakTablet) {
+                    float: none;
+                    height: auto;
+                }
+                a {
+                    .button;
+                    .button-sand;
+                    color: @grayDark;
+                    font-weight: normal;
+                    width: 200px;
+                    padding: 10px !important;
+                    word-wrap: break-word;
+                    &:hover {
+                        color: @grayDark;
+                    }
+                    i {
+                        padding-top: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Search Results
+================== */
+body#search {
+    #search-form {
+        margin-bottom: 20px;
+        input[type=text] {
+            border: 1px solid lighten(@black,90%);
+            margin-right: 8px;
+            @media (max-width: @breakMobileLandscape) {
+                width: 50%;
+                margin-bottom: 15px;
+            }
+        }
+        button {
+            .button;
+            margin: 0 8px 15px 0;
+        }
+        .search-options {
+            display: none;
+            input, span {
+                display: block;
+                float: left;
+            }
+            input {
+                margin-right: 10px;
+            }
+        }
+    }
+    .ui-widget-content.ui-corner-all {
+        border: 1px solid #D8DCDF !important;
+    }
+}
