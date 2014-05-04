@@ -212,7 +212,7 @@ CSP_SCRIPT_SRC = ("'self'",
                   'https://*.mozilla.net',
                   'https://*.google-analytics.com',
                   'https://login.persona.org',
-                  'https://*.mapbox.com')
+                  'https://*.mapbox.com',
                   '*.api.tiles.mapbox.com')
 CSP_STYLE_SRC = ("'self'",
                  "'unsafe-inline'",
@@ -220,7 +220,7 @@ CSP_STYLE_SRC = ("'self'",
                  'https://www.mozilla.org',
                  'http://*.mozilla.net',
                  'https://*.mozilla.net',
-                 'https://*.mapbox.com')
+                 'https://*.mapbox.com',
                  '*.api.tiles.mapbox.com')
 
 # Elasticutils settings
