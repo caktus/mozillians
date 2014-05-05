@@ -130,6 +130,12 @@ def show(request, url, alias_model, template):
         # not a Group
         profiles = group.members.all()
 
+    # Output geodata for map.
+    geodata = []
+    for profile in profiles:
+        if profile.lat and profile.lng:
+            geodata.append(dict([("lat", profile.lat), ("lng", profile.lng)]))
+
     page = request.GET.get('page', 1)
     paginator = Paginator(profiles, settings.ITEMS_PER_PAGE)
 
@@ -146,6 +152,7 @@ def show(request, url, alias_model, template):
     show_delete_group_button = (is_curator or is_manager) and group.members.all().count() == 1
 
     data = dict(people=people,
+                geodata=json.dumps(geodata),
                 group=group,
                 in_group=in_group,
                 is_curator=is_curator,
