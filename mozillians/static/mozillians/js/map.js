@@ -27,6 +27,7 @@ for (var i = 0; i < addressPoints.length; i++) {
     var labelText = addressPoints[i].labelText;
     var icon = L.icon({
         iconUrl: addressPoints[i].photo,
+        iconRetinaUrl: addressPoints[i].photo2x,
         iconSize: [32, 32],
         iconAnchor: [16, 16],
         className: 'moz-marker-single'
