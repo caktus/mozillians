@@ -134,7 +134,8 @@ def show(request, url, alias_model, template):
     geodata = []
     for profile in profiles:
         if profile.lat and profile.lng:
-            geodata.append(dict([("lat", profile.lat), ("lng", profile.lng)]))
+            labelText = "%s - %s, %s, %s" % (profile.ircname, profile.geo_city, profile.geo_region, profile.geo_country)
+            geodata.append(dict([("lat", profile.lat), ("lng", profile.lng), ("labelText", labelText)]))
 
     page = request.GET.get('page', 1)
     paginator = Paginator(profiles, settings.ITEMS_PER_PAGE)
