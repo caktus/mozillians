@@ -1,3 +1,4 @@
+// create base map
 var map = L.map('map')
     .setView([0, 0], 1)
     .addLayer(L.mapbox.tileLayer('fabmud.i23cd7kk', {
@@ -5,6 +6,11 @@ var map = L.map('map')
         maxZoom: 5,
         minZoom: 1,
     }));
+
+// add open street map attribution
+map.attributionControl.addAttribution(
+    '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+);
 
 var clusters = L.markerClusterGroup({
     showCoverageOnHover: false,
