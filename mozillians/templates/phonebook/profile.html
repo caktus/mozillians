@@ -33,29 +33,11 @@
             If you are new to the Mozilla community,
             <a class="button" href="{{ contribute_url }}">get involved</a>
           </p>
-          <p>
-            The chances of being vouched increase as you finish tasks in our community.
-          </p>
-
+          <p>The chances of being vouched increase as you finish tasks in our community.</p>
         {% endtrans %}
       {% else %}
-        {% if vouch_form %}
-          <form action="{{ url('phonebook:vouch') }}" method="POST"
-                id="vouch-form">
-            {{ csrf() }}
-            {{ vouch_form }}
-            {% trans name=profile.display_name %}
-                <button type="submit">
-                  Vouch for {{ name }}
-                </button>
-            {% endtrans %}
-          </form>
-        {% endif %}
         {% trans %}
-          <p>This profile is waiting for approval.</p>
-          <p>Because our community directory is for Mozillians who
-            are 13 and older, please don't vouch for anyone under
-            13.</p>
+          <p>This profile is waiting for approval. If you would like to vouch for them, use the form at the bottom of the page.</p>
         {% endtrans %}
       {% endif %}
     </div>
@@ -113,10 +95,9 @@
 
       <section id="profile-contact">
         <div class="contact-details">
-          
             {% if profile.email %}
               <section class="u-email">
-                <i class="icon-envelope left"></i>
+                <i class="icon-envelope"></i>
                 {% if user != shown_user %}<a href="mailto:{{ profile.email }}">{% endif %}
                   <span class="email">{{ profile.email }}</span>
                 {% if user != shown_user %}</a>{% endif %}
@@ -131,7 +112,6 @@
             {% if profile.tshirt %}
               <section>{{ _('T-Shirt Size:') }} {{ profile.get_tshirt_display() }}</section>
             {% endif %}
-          
         </div>
       </section>
 
@@ -270,24 +250,25 @@
         {% if not profile.is_vouched %}
           <div style="overflow:auto; padding:0px; text-align:left" class="alert">
             <div style="margin:10px;">
-            <h4>Firstname needs 6 more vouchers to be a Mozillian.</h4>
-            <textarea style="padding:0; height: 115px; margin: 0px; font-size: 11pt; width:100%;" placeholder="Your reason for personally vouching &amp; links here."></textarea>
+            <h4>First Last needs 1 more vouch in order to vouch others.</h4>
+            <p>Your reason for personally vouching &amp; relevant links</p>
+            <textarea style="padding:0; height: 115px; margin: 0px; font-size: 11pt; width:100%;" placeholder=""></textarea>
             <a href="#" style="float:left">Markdown Syntax</a>
 
             <a class="button right" style="margin:0 auto;"><i class="icon-key"></i> Vouch</a>
-            <div class="right" style="margin-right: 5px; line-height: 24px;">461</div>
+            <div class="right" style="margin-right: 5px; line-height: 24px;">500</div>
 
             <div class="clear"></div>
 
-            <p style="margin: 10px;">Only vouch for users who have made significant contributions and are at least 13 years old. Once vouched, they will be able to:</p>
-
+            <p style="margin-top:10px 0;">Only vouch for users who have made significant contributions and are at least 13 years old. Once vouched, they will be able to:</p>
+<!--
             <ul>
               <li>View all profiles and join groups</li>
               <li>Access special video content on Air Mozilla</li>
               <li>Join the Mozilla Exchange Yammer network</li>
               <li>Use other Mozilla apps as a vouched user</li>
             </ul>
-
+-->
             <p>Vouchers cannot be edited or retracted.
             <br><a href="#">Read more about vouching</a></p>
           </div>
