@@ -249,19 +249,19 @@
           </div>
         {% endif %}
         {% if not profile.is_vouched %}
-          <div style="overflow:auto; padding:0px; text-align:left" class="alert">
-            <div style="margin:10px;">
+          <div class="vouch-box">
+            <div class="margins">
             <h4>First Last needs 1 more vouch in order to vouch others.</h4>
             <p>Your reason for personally vouching &amp; relevant links</p>
-            <textarea style="padding:0; height: 115px; margin: 0px; font-size: 11pt; width:100%;" placeholder=""></textarea>
-            <a href="#" style="float:left">Markdown Syntax</a>
+            <textarea></textarea>
+            <a href="#" class="left">Markdown Syntax</a>
 
-            <a class="button right" style="margin:0 auto;"><i class="icon-key"></i> Vouch</a>
-            <div class="right" style="margin-right: 5px; line-height: 24px;">500</div>
+            <a class="button"><i class="icon-key"></i> Vouch</a>
+            <div id="character_limit">500</div>
 
             <div class="clear"></div>
 
-            <p style="margin-top:10px 0;">Only vouch for users who have made significant contributions and are at least 13 years old. Once vouched, they will be able to:</p>
+            <p style="margin:10px 0;">Only vouch for users who have made significant contributions and are at least 13 years old. Once vouched, they will be able to:</p>
 <!--
             <ul>
               <li>View all profiles and join groups</li>
