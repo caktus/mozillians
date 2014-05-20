@@ -248,7 +248,7 @@
             </a>
           </div>
         {% endif %}
-        <!-- FIXME: {%if%} that checks number of vouchers to show vouch box at all -->
+        <!-- FIXME: if that checks number of vouchers to show vouch box at all -->
           <div class="vouch-box">
             <div class="margins">
             {% if not profile.is_vouched %}
@@ -257,11 +257,11 @@
             <h4>Do you know this Mozillian? Let us know how he/she contributed</h4>
             {% endif %}
             <p>Provide a reason for vouching with relevant links</p>
-            <textarea></textarea>
+            <textarea maxlength="800"></textarea>
             <a href="#" class="left">Markdown Syntax</a>
 
             <a class="button"><i class="icon-key"></i> Vouch</a>
-            <div id="character_limit">500</div>
+            <div class="character-countdown">500</div>
 
             <div class="clear"></div>
 
@@ -278,7 +278,7 @@
             <br><a href="#">Read more about vouching</a></p>
           </div>
           </div>
-        <!-- {%endif%} -->
+        <!-- endif -->
       </section>
 
     </article>
@@ -299,5 +299,6 @@
 {% block page_js %}
   {% compress js %}
     <script src="{{ static('mozillians/js/profile_view.js') }}"></script>
+    <script src="{{ static('mozillians/js/character_limit.js') }}"></script>
   {% endcompress %}
 {% endblock %}
