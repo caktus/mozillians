@@ -248,11 +248,14 @@
             </a>
           </div>
         {% endif %}
-        {% if not profile.is_vouched %}
+        <!-- FIXME: {%if%} that checks number of vouchers to show vouch box at all -->
           <div class="vouch-box">
             <div class="margins">
+            {% if not profile.is_vouched %}
             <h4>Is First Last a Mozillian? Let us know how he/she contributed</h4>
+            {% else %}
             <h4>Do you know this Mozillian? Let us know how he/she contributed</h4>
+            {% endif %}
             <p>Provide a reason for vouching with relevant links</p>
             <textarea></textarea>
             <a href="#" class="left">Markdown Syntax</a>
@@ -275,7 +278,7 @@
             <br><a href="#">Read more about vouching</a></p>
           </div>
           </div>
-        {% endif %}
+        <!-- {%endif%} -->
       </section>
 
     </article>
