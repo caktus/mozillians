@@ -24,10 +24,10 @@ console.log('map',map);
 console.log('address points',addressPoints);
 
 for (var i = 0; i < addressPoints.length; i++) {
-    var title = addressPoints[i].name;
-    var marker = L.marker(new L.LatLng(addressPoints[i].lat, addressPoints[i].lng), { title: "example" });
+    var labelText = addressPoints[i].labelText;
+    var marker = L.marker(new L.LatLng(addressPoints[i].lat, addressPoints[i].lng), { title: labelText});
     console.log(marker);
-    marker.bindPopup(title);
+    marker.bindPopup(labelText);
     clusters.addLayer(marker);
 }
 
