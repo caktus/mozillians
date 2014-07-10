@@ -199,14 +199,7 @@
 
 {% block page_js %}
     <script type="application/json" id="geodata">
-      [
-        {% for person in people %}
-          {% if person.lat %}
-            {"lat":{{ person.lat }}, "lng":{{ person.lng }}}
-            {% if not loop.last %},{% endif %}
-          {% endif %}
-        {% endfor %}
-      ]
+      {{ geodata|safe }}
     </script>
     <script type="text/javascript" src="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js"></script>
     <link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css">
