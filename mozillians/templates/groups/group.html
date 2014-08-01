@@ -150,7 +150,7 @@
     {% endif %}
 
     <h3>Map</h3>
-    <div id="map"></div>
+    <div id="map" data-mapboxid="{{ mapbox_id }}"></div>
 
     {% if not people.paginator.count %}
       <div class="clear">

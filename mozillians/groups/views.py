@@ -196,6 +196,7 @@ def show(request, url, alias_model, template):
                       show_join_button=group.user_can_join(request.user.userprofile),
                       show_leave_button=group.user_can_leave(request.user.userprofile),
                       members=group.member_count,
+                      mapbox_id=settings.MAPBOX_MAP_ID
                       )
 
     data.update(extra_data)
