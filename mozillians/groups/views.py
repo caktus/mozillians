@@ -111,6 +111,7 @@ def show(request, url, alias_model, template):
     geodata = []
 
     if isinstance(group, Group):
+        geodata = json.dumps(group.geodata())
         # Is this user's membership pending?
         is_pending = group.has_pending_member(profile)
 
@@ -162,17 +163,6 @@ def show(request, url, alias_model, template):
 
         data.update(skills=skills, membership_filter_form=membership_filter_form)
 
-        # Output geodata for map.
-
-        for membership in memberships:
-            profile = membership.userprofile or membership
-            if profile.lat and profile.lng:
-                labelText = "%s &mdash; %s" % (profile.full_name, profile.geo_city)
-                geodata.append(dict([("lat", profile.lat), ("lng", profile.lng),
-                                     ("labelText", labelText),
-                                     ("photo", profile.get_photo_url('32x32')),
-                                     ("photo2x", profile.get_photo_url('64x64'))]))
-
     page = request.GET.get('page', 1)
     paginator = Paginator(memberships, settings.ITEMS_PER_PAGE)
 
@@ -186,7 +176,7 @@ def show(request, url, alias_model, template):
     show_pagination = paginator.count > settings.ITEMS_PER_PAGE
 
     extra_data = dict(people=people,
-                      geodata=json.dumps(geodata),
+                      geodata=geodata,
                       group=group,
                       in_group=in_group,
                       is_curator=is_curator,
