@@ -220,7 +220,7 @@ class Group(GroupBase):
         geodata = []
         for membership in memberships:
             profile = membership.userprofile or membership
-            if profile.lat and profile.lng:
+            if profile.lat and profile.lng and profile.geo_city:
                 labelText = "%s &mdash; %s" % (profile.full_name, profile.geo_city)
                 geodata.append(dict([("lat", profile.lat), ("lng", profile.lng),
                                      ("labelText", labelText),

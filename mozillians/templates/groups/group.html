@@ -198,12 +198,8 @@
 {% endblock content %}
 
 {% block page_js %}
-    <script type="application/json" id="geodata">
-      {{ geodata|safe }}
-    </script>
     <script type="text/javascript" src="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js"></script>
     <link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css">
-
     <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
     <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />

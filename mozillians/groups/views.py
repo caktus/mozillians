@@ -90,6 +90,14 @@ def search(request, searched_object=Group):
     return HttpResponseBadRequest()
 
 
+def geodata(request, url, alias_model):
+    group_alias = get_object_or_404(alias_model, url=url)
+    if group_alias.alias.url != url:
+        return redirect('groups:show_geodata', url=group_alias.alias.url)
+    group = group_alias.alias
+    return HttpResponse(json.dumps(group.geodata()), mimetype='application/json')
+
+
 @never_cache
 def show(request, url, alias_model, template):
     """List all members in this group."""
@@ -108,10 +116,8 @@ def show(request, url, alias_model, template):
     in_group = group.has_member(profile)
     memberships = group.members.all()
     data = {}
-    geodata = []
 
     if isinstance(group, Group):
-        geodata = json.dumps(group.geodata())
         # Is this user's membership pending?
         is_pending = group.has_pending_member(profile)
 
@@ -176,7 +182,6 @@ def show(request, url, alias_model, template):
     show_pagination = paginator.count > settings.ITEMS_PER_PAGE
 
     extra_data = dict(people=people,
-                      geodata=geodata,
                       group=group,
                       in_group=in_group,
                       is_curator=is_curator,
