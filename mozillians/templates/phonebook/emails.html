@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ _('Email settings') }}{% endblock %}
+{% block body_id %}emails{% endblock %}
+
+{% block content %}
+
+<h1>{{ _('Email settings') }}</h1>
+
+<form method="POST" action="{{ url('phonebook:edit_emails') }}">
+  {{ csrf() }}
+  <div>
+    <h2> Primary email address</h2>
+    {{ primary_email }} {{ email_privacy_form }}
+  </div>
+  <div>
+    <h2> Alternate email addresses </h2>
+    {{ alternate_email_formset.management_form }}
+    {% for form in alternate_email_formset %}
+      <div>
+        {{ form.instance.identifier }} {{ form }}
+      </div>
+    {% endfor %}
+    <div id="add_email">
+      <a href="#" id="nav-login" class="persona-button browserid-login">
+        <span class="icon">
+          <img src="{{ static('mozillians/img/persona-person-white.png') }}" alt="persona icon">
+        </span>
+        <span class="signin">{{ _('Add a new email address') }}</span>
+      </a>
+    </div>
+    <div>
+      <button type="submit">{{ _('Update emails') }}</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
