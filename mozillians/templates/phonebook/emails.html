@@ -6,33 +6,70 @@
 {% block content %}
 
 <h1>{{ _('Email settings') }}</h1>
+<p>{{ _('You can connect more than one Persona e-mail to your Mozillians profile. Visibility to other Mozillians is optional, but you will be able to sign in with any of them.') }}</p>
 
 <form method="POST" action="{{ url('phonebook:edit_emails') }}">
-  {{ csrf() }}
-  <div>
-    <h2> Primary email address</h2>
-    {{ primary_email }} {{ email_privacy_form }}
-  </div>
-  <div>
-    <h2> Alternate email addresses </h2>
-    {{ alternate_email_formset.management_form }}
-    {% for form in alternate_email_formset %}
-      <div>
-        {{ form.instance.identifier }} {{ form }}
+
+    {{ csrf() }}
+    
+    <h2>Primary e-mail address</h2>
+    <fieldset>
+      <span>{{ primary_email }}</span>
+
+      <!--<div class="privacy-controls">{{ email_privacy_form }}</div>-->
+      <div class="FAKE privacy-controls">
+        <label for="id_privacy_email">Visible to:</label>
+        <select id="id_privacy_email" name="privacy_email">
+          <option value="3" selected="selected">Mozillians</option>
+          <option value="4">Public</option>
+        </select>
       </div>
-    {% endfor %}
+
+    </fieldset>
+   
+    <h2>Secondary e-mail addresses</h2>
+    <!--
+    <fieldset>
+      {{ alternate_email_formset.management_form }}
+
+      {% for form in alternate_email_formset %}
+          {{ form.instance.identifier }} {{ form }}
+      {% endfor %}
+    </fieldset>
+    -->
+
+    <fieldset class="FAKE">
+      <!-- all those hidden fields go here
+      <input id="id_externalaccount_set-0-id" name="externalaccount_set-0-id" value="1" type="hidden"><input id="id_externalaccount_set-0-user" name="externalaccount_set-0-user" value="1" type="hidden">
+      -->
+
+      <div class="left">wbowling+multiple0@caktusgroup.com</div>
+      <label for="id_externalaccount_set-0-DELETE">Delete:</label>
+      <input id="id_externalaccount_set-0-DELETE" name="externalaccount_set-0-DELETE" type="checkbox">
+      <div class="FAKE privacy-controls">
+        <label for="id_privacy_email">Visible to:</label>
+        <select id="id_privacy_email" name="privacy_email">
+          <option value="3" selected="selected">Mozillians</option>
+          <option value="4">Public</option>
+        </select>
+      </div>
+
+    </fieldset>
+
+    <!-- Add e-mails -->
     <div id="add_email">
       <a href="#" id="nav-login" class="persona-button browserid-login">
         <span class="icon">
           <img src="{{ static('mozillians/img/persona-person-white.png') }}" alt="persona icon">
         </span>
-        <span class="signin">{{ _('Add a new email address') }}</span>
+        <span class="signin">{{ _('Add e-mail from Persona') }}</span>
       </a>
     </div>
     <div>
-      <button type="submit">{{ _('Update emails') }}</button>
+      <button class="button" type="submit">{{ _('Submit') }}</button>
     </div>
   </div>
+
 </form>
 
 {% endblock %}

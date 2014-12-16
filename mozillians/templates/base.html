@@ -108,6 +108,12 @@
                             {{ _('Edit Your Profile') }}
                           </a>
                         </li>
+                        <li>
+                          <a id="nav-edit-emails" href="{{ url('phonebook:edit_emails') }}">
+                            <i class="icon-user"></i>
+                            {{ _('Manage Your Accounts') }}
+                          </a>
+                        </li>
                         {% if user.userprofile.is_vouched %}
                           <li>
                             <a id="nav-groups" href="{{ url('groups:index_groups') }}">
