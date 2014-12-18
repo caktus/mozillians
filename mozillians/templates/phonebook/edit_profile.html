@@ -123,6 +123,14 @@
     </fieldset>
 
     <fieldset>
+      <!--{{ primary_email }}-->
+      <label for="primary_email">{{ _('Primary e-mail') }}</label>
+      <span id="primary_email">youremail@example.com</span>
+      <a class="button" href="/user/edit/emails/">{{ _('Manage emails') }}</a>
+      
+    </fieldset>
+
+    <fieldset>
       {{ mozillians_field(profile_form.bio) }}
       <span class="under-input-field">
         {% trans url='http://daringfireball.net/projects/markdown/syntax' %}
