@@ -43,15 +43,10 @@
       <input id="id_externalaccount_set-0-id" name="externalaccount_set-0-id" value="1" type="hidden"><input id="id_externalaccount_set-0-user" name="externalaccount_set-0-user" value="1" type="hidden">
       -->
 
-      <div class="left">wbowling+multiple0@caktusgroup.com</div>
-      <div class="left delete-email">
-        <label for="id_externalaccount_set-0-DELETE">Delete:</label>
-        <input id="id_externalaccount_set-0-DELETE" name="externalaccount_set-0-DELETE" type="checkbox">
-      </div>
-      <div class="left primary-email">
-        <label for="id_primary-12345">Make Primary:</label>
-        <input id="id_primary-12345" type="checkbox">
-      </div>
+      <span>wbowling+multiple0@caktusgroup.com</span>
+      <button class="delete button">Delete</button>
+      <button class="button">Make Primary</button>
+
       <div class="FAKE privacy-controls">
         <label for="id_privacy_email">Visible to:</label>
         <select id="id_privacy_email" name="privacy_email">
@@ -71,9 +66,7 @@
         <span class="signin">{{ _('Add e-mail from Persona') }}</span>
       </a>
     </div>
-    <div>
-      <button class="button" type="submit">{{ _('Submit') }}</button>
-    </div>
+
   </div>
 
 </form>
